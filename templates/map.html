@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Waste Collection Optimizer - Bin Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIINfQ3dVf7xqQ9L1fJq4m8lYvN7j1k6H9Q=" crossorigin="">
+  <link rel="stylesheet" href="{{ url_for('static', filename='map.css') }}">
+</head>
+<body>
+  <main class="page">
+    <header class="header">
+      <div>
+        <p class="eyebrow">Waste Collection Optimizer</p>
+        <h1>Waste-bin location map</h1>
+        <p class="subtitle">Accurate latitude/longitude markers with live bin status.</p>
+      </div>
+      <button id="fitBinsBtn" class="button" type="button">Show all bins</button>
+    </header>
+
+    <section class="stats" aria-label="Bin summary">
+      <div class="card"><span>Total bins</span><strong id="totalBins">—</strong></div>
+      <div class="card"><span>Needs collection</span><strong id="collectionBins">—</strong></div>
+      <div class="card"><span>Map status</span><strong id="mapStatus">Loading…</strong></div>
+    </section>
+
+    <section class="content">
+      <div id="map" aria-label="Waste-bin map"></div>
+      <aside class="panel">
+        <h2>Waste bins</h2>
+        <p id="errorMessage" class="error" hidden></p>
+        <div id="binList" class="bin-list"></div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="{{ url_for('static', filename='map.js') }}"></script>
+</body>
+</html>
